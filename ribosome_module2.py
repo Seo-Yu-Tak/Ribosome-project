@@ -2,18 +2,18 @@ def ribosome(input):
 #행방향 변환작업
         row_converted_data = []
         input_data = input
-        for i in range(len(input_data)):
+        for i in range(len(input_data)): #세로축 반복
                 row_data = []
-                for j in range(len(input_data[0])):
-                        if input_data[i][j] == 1:
-                            if (input_data[i][j-1] == 0) & (input_data[i][j+1] == 0):
-                                    row_data.append(1) 
+                for j in range(len(input_data[0])): #가로축 반복
+                        if input_data[i][j] == 1:  #기준셀이 1일때,
+                            if (input_data[i][j-1] == 0) & (input_data[i][j+1] == 0): 
+                                    row_data.append(1) #후미,선두=0 일때, 1 추가
                             elif (input_data[i][j-1] == 1) & (input_data[i][j+1] == 0):
-                                    row_data.append(1)
+                                    row_data.append(1) #후미=1,선두=0 일때, 1 추가
                             elif (input_data[i][j-1] == 0) & (input_data[i][j+1] == 1):
-                                    row_data.append(1)
+                                    row_data.append(1) #후미=0,선두=1 일때, 1 추가
                             else:
-                                    row_data.append(0)
+                                    row_data.append(0) #후미,선두=1 일때, 0 추가
                         else:
                             row_data.append(0)        
                 row_data.append(0)
